@@ -7,20 +7,24 @@
   <title>Portfolio</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/88f8d53c3c.js" crossorigin="anonymous"></script>
+ 
 </head>
 <body>
   <div id="header">
     <div class="container">
       <nav>
         <div class="logo-text">JM</div>
-        <ul>
-          <li><a href="#header">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <i class="fa-solid fa-bars menu-icon" onclick="toggleMenu()"></i>
+        <ul id="nav-links">
+          <li><a href="#header" onclick="closeMenu()">Home</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#services" onclick="closeMenu()">Services</a></li>
+          <li><a href="#portfolio" onclick="closeMenu()">Portfolio</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
         </ul>
       </nav>
+      
+      
 
       <div class="header-content">
         <div class="header-text">
@@ -136,7 +140,7 @@
             Banking app built with Python, PyQt6, and SQLite.
           </p>
           <div class="links">
-            <a href="https://github.com/Juanemiliani70/BancoAPP.git" class="github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Juanemiliani70/Bank-System-App" class="github-link" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github"></i> <span>GitHub</span>
             </a>
             <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
@@ -154,7 +158,7 @@
             CRUD app built with Flask and MySQL for managing contacts.
           </p>
           <div class="links">
-            <a href="https://github.com/Juanemiliani70/App_contacts.git" class="github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Juanemiliani70/App_contacts" class="github-link" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github"></i> <span>GitHub</span>
             </a>
             <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
@@ -190,7 +194,7 @@
             Hotel booking app built with Java and Android Studio.
           </p>
           <div class="links">
-            <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Juanemiliani70/Hotel-Booking-System" class="github-link" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github"></i> <span>GitHub</span>
             </a>
             <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
@@ -208,7 +212,7 @@
             A simple movie catalog application developed with Tkinter and SQLite3
           </p>
           <div class="links">
-            <a href="https://github.com/Juanemiliani70/movie-catalog.git" class="github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Juanemiliani70/movie-catalog" class="github-link" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github"></i> <span>GitHub</span>
             </a>
             <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
@@ -218,10 +222,10 @@
         </div>
       </div>
 
-      
     </div>
   </div>
 </div>
+
 
 <!---------------------contact---------------->
 <section id="contact">
@@ -251,7 +255,7 @@
           <input type="hidden" name="_captcha" value="false">
       
           
-          <input type="hidden" name="_next" value="https://tuweb.com/gracias.html">
+          <input type="hidden" name="_next" value="https://juanemiliani70.github.io/My-Portfolio/">
       
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
@@ -282,5 +286,17 @@
       document.getElementById(tabname).classList.add("active-tab");
     }
   </script>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
+  }
+
+  function closeMenu() {
+    document.getElementById("nav-links").classList.remove("active");
+  }
+</script>
+
+
 </body>
 </html>
