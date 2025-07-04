@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/88f8d53c3c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <div class="logo-text">JM</div>
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-content">
+        <div class="header-text">
+          <p>Software Developer</p>
+          <h1>Hi, I'm <span>Juan Manuel</span><br>from Argentina</h1>
+        </div>
+        <div class="header-img">
+          <img src="imagenes/img1_portfolio.jpg" alt="Foto personal">
+        </div>
+      </div>
+    <!------------about----------------->
+
+
+    <div id="about">
+        <div class="container">
+          <div class="row">
+            <div class="about-col-1">
+              <img src="imagenes/img2_portfolio.jpg" />
+            </div>
+      
+            <div class="about-col-2">
+              <h1 class="sub-title">About Me</h1>
+              <p>
+                I am a software developer with a passion for creating innovative solutions. I am a quick learner and I am always looking for new challenges.
+                
+              </p>
+      
+              <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                <p class="tab-links" onclick="opentab('education')">Education</p>
+              </div>
+      
+              <div class="tab-contents active-tab" id="skills">
+                <ul>
+                  <li><span>Programming Languages & Frameworks:</span> Java, Python, SQL, JavaScript, HTML, CSS, Android Studio</li>
+                  <li><span>Operating Systems & Networking:</span> Linux, Windows Server, Network fundamentals</li>
+                  <li><span>Tools & Technologies:</span> Git & GitHub, UML, Excel</li>
+                </ul>
+              </div>
+      
+              <div class="tab-contents" id="experience">
+                <ul>
+                  <li><span>Personal Projects:</span> Projects developed through self-learning and personal exploration.</li>
+                  <li><span>Academic Projects:</span> Projects carried out as part of my Software Development studies.</li>
+                  <li><span>Freelance Work:</span> Web development for independent clients.</li>
+                </ul>
+              </div>
+      
+              <div class="tab-contents" id="education">
+                <ul>
+                  <li>
+                    <span>Higher Technical Degree in Software Development (2024–in progress)</span><br />
+                    Instituto Superior Santo Domingo – Córdoba, Argentina
+                  </li>
+                  <li>
+                    <span>Expert Course in Network Administration and Security (2024–finished)</span><br />
+                    Aprender21 – E-learning Platform
+                  </li>
+                </ul>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------services---------------->
+      <div id="services">
+        <div class="container">
+          <h1 class="sub-title">My Services</h1>
+          <div class="services-list">
+      
+            <div>
+              <i class="fa-solid fa-laptop-code"></i>
+              <h2>Web Development</h2>
+              <p>
+                Design and development of responsive websites using HTML, CSS, JavaScript, and React.
+              </p>
+             
+            </div>
+      
+            <div>
+              <i class="fa-brands fa-android"></i>
+              <h2>App Development</h2>
+              <p>
+                Development of mobile and desktop applications using Android Studio, Java, and Python.
+              </p>
+             
+            </div>
+      
+            <div>
+              <i class="fa-solid fa-server"></i>
+              <h2>IT Support & Networking</h2>
+              <p>
+                System setup and basic networking using Linux and Windows Server. Includes DNS, DHCP, FTP, and server configuration.
+              </p>
+             
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------portfolio------------------>
+<div id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+
+      <div class="work">
+        <img src="imagenes/mywork1.jpg" alt="mywork1" />
+        <div class="layer">
+          <h3>Bank System App</h3>
+          <p>
+            Banking app built with Python, PyQt6, and SQLite.
+          </p>
+          <div class="links">
+            <a href="https://github.com/Juanemiliani70/BancoAPP.git" class="github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> <span>GitHub</span>
+            </a>
+            <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-video"></i> <span>Demo Video</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="imagenes/mywork2.jpg" alt="mywork2" />
+        <div class="layer">
+          <h3>Contact Manager App</h3>
+          <p>
+            CRUD app built with Flask and MySQL for managing contacts.
+          </p>
+          <div class="links">
+            <a href="https://github.com/Juanemiliani70/App_contacts.git" class="github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> <span>GitHub</span>
+            </a>
+            <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-video"></i> <span>Demo Video</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="imagenes/mywork3.jpg" alt="mywork3" />
+        <div class="layer">
+          <h3>Ski Instructor Website</h3>
+          <p>
+            A static website for a ski instructor, built with HTML, CSS, and JavaScript.
+          </p>
+          <div class="links">
+            <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> <span>GitHub</span>
+            </a>
+            <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-video"></i> <span>Demo Video</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="imagenes/mywork4.jpg" alt="mywork4" />
+        <div class="layer">
+          <h3>Hotel Booking System</h3>
+          <p>
+            Hotel booking app built with Java and Android Studio.
+          </p>
+          <div class="links">
+            <a href="#" class="github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> <span>GitHub</span>
+            </a>
+            <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-video"></i> <span>Demo Video</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="work">
+        <img src="imagenes/mywork5.jpg" alt="mywork5" />
+        <div class="layer">
+          <h3>Movie Catalog App</h3>
+          <p>
+            A simple movie catalog application developed with Tkinter and SQLite3
+          </p>
+          <div class="links">
+            <a href="https://github.com/Juanemiliani70/movie-catalog.git" class="github-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i> <span>GitHub</span>
+            </a>
+            <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-video"></i> <span>Demo Video</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+<!---------------------contact---------------->
+<section id="contact">
+    <div class="container contact-container">
+      <div class="contact-left">
+        <h2>Contact Me</h2>
+        <p><i class="fa-solid fa-envelope"></i> juanmemiliani@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +54 11 3684 2559</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/juan-manuel-emiliani-7a1212322/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Juanemiliani70" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          
+
+        </div>
+        <a href="CV-Juan Manuel Emiliani(EN).pdf" download class="btn2" style="margin-top: 20px; display: inline-block;" target="_blank">Download CV</a>
+
+        
+      </div>
+  
+      <div class="contact-right">
+        <form action="https://formsubmit.co/juanmemiliani@gmail.com" method="POST">
+         
+          <input type="hidden" name="_captcha" value="false">
+      
+          
+          <input type="hidden" name="_next" value="https://tuweb.com/gracias.html">
+      
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+      
+          <button type="submit" class="btn2">Send Message</button>
+        </form>
+      </div>
+      
+  </section>
+  
+  <div class="copyright">
+    <p>© 2025 Juan Manuel Emiliani. All rights reserved.</p>
+  </div>
+  
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+  
+    function opentab(tabname) {
+      for (let tablink of tablinks) {
+        tablink.classList.remove("active-link");
+      }
+      for (let tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+  </script>
+</body>
+</html>
