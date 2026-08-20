@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Juan Manuel Emiliani</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --accent: #7c5cfc;
+    --accent2: #4fd1c5;
+    --text: #f0f0f5;
+    --muted: #8888a0;
+    --border: rgba(255,255,255,0.07);
+    --card: rgba(255,255,255,0.04);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 4rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.3rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  nav a:hover { color: var(--text); }
+
+  section { padding: 5rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 6rem;
+    position: relative;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent2); border: 1px solid var(--accent2);
+    padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  h1 span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-desc { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.75rem 1.75rem; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: #9374ff; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  .hero-grid {
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .hero-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .hero-card h3 {
+    font-family: 'Syne', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1rem;
+  }
+  .cert-badge {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: rgba(124,92,252,0.1); border: 1px solid rgba(124,92,252,0.25);
+    border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.75rem;
+  }
+  .cert-icon { font-size: 1.5rem; }
+  .cert-name { font-size: 0.85rem; font-weight: 500; }
+  .cert-sub { font-size: 0.75rem; color: var(--muted); }
+  .stat-row { display: flex; gap: 1rem; margin-top: 1rem; }
+  .stat { text-align: center; flex: 1; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--accent2); }
+  .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* SECTIONS */
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800; margin-bottom: 1rem;
+  }
+  .section-desc { color: var(--muted); max-width: 540px; margin-bottom: 3rem; }
+
+  /* SKILLS */
+  .skills-wrapper { display: flex; flex-direction: column; gap: 2rem; }
+  .skill-group h4 {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.75rem;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.8rem; padding: 0.3rem 0.85rem;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); transition: all 0.2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .tag.hot { border-color: rgba(124,92,252,0.4); color: #b39dff; background: rgba(124,92,252,0.08); }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+  .project-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: all 0.25s; display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: rgba(124,92,252,0.4); transform: translateY(-3px); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(124,92,252,0.15); border: 1px solid rgba(124,92,252,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .project-links { display: flex; gap: 0.5rem; }
+  .proj-link {
+    font-size: 0.7rem; color: var(--muted); text-decoration: none;
+    border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 5px;
+    transition: all 0.15s;
+  }
+  .proj-link:hover { color: var(--accent2); border-color: var(--accent2); }
+  .project-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .ptag {
+    font-size: 0.7rem; padding: 0.15rem 0.55rem;
+    background: rgba(79,209,197,0.08); border: 1px solid rgba(79,209,197,0.2);
+    border-radius: 4px; color: var(--accent2);
+  }
+
+  /* EDUCATION */
+  .edu-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .edu-card {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem;
+  }
+  .edu-year {
+    font-family: 'Syne', sans-serif; font-size: 0.7rem;
+    color: var(--accent); white-space: nowrap; padding-top: 0.2rem;
+    min-width: 60px;
+  }
+  .edu-title { font-weight: 500; font-size: 0.95rem; }
+  .edu-inst { font-size: 0.82rem; color: var(--muted); }
+  .edu-badge {
+    margin-left: auto; font-size: 0.65rem; padding: 0.2rem 0.6rem;
+    border-radius: 999px; white-space: nowrap;
+  }
+  .badge-done { background: rgba(79,209,197,0.1); color: var(--accent2); border: 1px solid rgba(79,209,197,0.25); }
+  .badge-progress { background: rgba(124,92,252,0.1); color: #b39dff; border: 1px solid rgba(124,92,252,0.25); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none; color: var(--muted);
+    font-size: 0.9rem; transition: color 0.2s; padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-link:hover { color: var(--text); }
+  .contact-link i {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+  footer {
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+  .fade-up.d1 { animation-delay: 0.1s; opacity: 0; }
+  .fade-up.d2 { animation-delay: 0.25s; opacity: 0; }
+  .fade-up.d3 { animation-delay: 0.4s; opacity: 0; }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+</head>
+<body>
+
+<nav>
+  <div class="logo">JM</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:1100px;margin:0 auto;padding:0 4rem;min-height:100vh;display:flex;align-items:center;">
+  <div class="hero-grid" style="width:100%">
+    <div>
+      <div class="hero-tag fade-up d1">Available for work</div>
+      <h1 class="fade-up d2">Hi, I'm <span>Juan Manuel</span> —<br>Software & ML Developer</h1>
+      <p class="hero-desc fade-up d3">Building modern apps and exploring machine learning. Based in Argentina, open to new opportunities. Always improving.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <h2>Passionate developer,<br>always learning.</h2>
+  <p class="section-desc">I'm a software developer with a Higher Technical Degree in Software Development (in progress) at Instituto Superior Santo Domingo, Córdoba. I love building things, from full-stack web apps to ML models. Recently completed a Machine Learning Engineer course and I'm always exploring new technologies.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I know</div>
+  <h2>Skills & Tools</h2>
+  <p class="section-desc">A mix of web development, machine learning, and infrastructure tools I've learned and applied across projects.</p>
+  <div class="skills-wrapper">
+    <div class="skill-group">
+      <h4>🤖 Machine Learning & Data</h4>
+      <div class="tags">
+        <span class="tag hot">Python</span>
+        <span class="tag hot">scikit-learn</span>
+        <span class="tag hot">pandas</span>
+        <span class="tag hot">NumPy</span>
+        <span class="tag hot">XGBoost</span>
+        <span class="tag hot">Linear Regression</span>
+        <span class="tag hot">KNN</span>
+        <span class="tag hot">Random Forest</span>
+        <span class="tag hot">Jupyter Notebook</span>
+        <span class="tag hot">Google Colab</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>🌐 Web Development</h4>
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">PHP</span>
+        <span class="tag">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>🖥 Backend & Languages</h4>
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Python</span>
+        <span class="tag">Android Studio</span>
+        <span class="tag">SQL / MySQL / SQLite</span>
+        <span class="tag">Flask</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>🛠 DevOps & Cloud</h4>
+      <div class="tags">
+        <span class="tag hot">Docker</span>
+        <span class="tag hot">Redis</span>
+        <span class="tag hot">AWS</span>
+        <span class="tag">Git & GitHub</span>
+        <span class="tag">Virtual Machines</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>🔒 Networking & Infrastructure</h4>
+      <div class="tags">
+        <span class="tag">Linux</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag">DNS / DHCP / FTP</span>
+        <span class="tag">HTTP / SMTP</span>
+        <span class="tag">OSI Model</span>
+        <span class="tag">Router Config</span>
+        <span class="tag">Basic IT Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="work">
+  <div class="section-label">Portfolio</div>
+  <h2>My Projects</h2>
+  <p class="section-desc">Projects built through freelance work, academic coursework, and personal exploration.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🎬</div>
+        <div class="project-links">
+          <a href="https://github.com/Juanemiliani70/PeliculApp-frontend" target="_blank" class="proj-link">Front</a>
+          <a href="https://github.com/Juanemiliani70/PeliculApp-backend" target="_blank" class="proj-link">Back</a>
+          <a href="https://www.youtube.com/watch?v=VGcds_FpzjY&t=3s" target="_blank" class="proj-link">Demo</a>
+        </div>
+      </div>
+      <div class="project-name">PeliculApp</div>
+      <div class="project-desc">Full-stack movie platform for searching, exploring and managing a personalized movie catalogue.</div>
+      <div class="project-tags">
+        <span class="ptag">Full Stack</span><span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="border-color:rgba(124,92,252,0.35); cursor:pointer;" onclick="window.location.href='cabcast.html'">
+      <div class="project-header">
+        <div class="project-icon">🚕</div>
+        <div class="project-links">
+          <span class="proj-link" style="color:var(--accent2);border-color:rgba(79,209,197,0.3);">Featured ML</span>
+        </div>
+      </div>
+      <div class="project-name">CabCast <span style="font-size:0.7rem;color:var(--accent);font-weight:400;">→ view case study</span></div>
+      <div class="project-desc">NYC taxi fare & duration prediction. LightGBM models with R² 0.97, deployed via FastAPI + Docker + Redis with a live Next.js frontend.</div>
+      <div class="project-tags">
+        <span class="ptag">LightGBM</span><span class="ptag">FastAPI</span><span class="ptag">Docker</span><span class="ptag">Redis</span><span class="ptag">Next.js</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🗂️</div>
+        <div class="project-links">
+          <a href="https://github.com/Juanemiliani70/App_contacts" target="_blank" class="proj-link">GitHub</a>
+        </div>
+      </div>
+      <div class="project-name">Contact Manager</div>
+      <div class="project-desc">CRUD web app for managing contacts with search, filters and a clean UI.</div>
+      <div class="project-tags">
+        <span class="ptag">Flask</span><span class="ptag">Python</span><span class="ptag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">⛷️</div>
+        <div class="project-links">
+          <a href="https://web-page-ski.vercel.app/" target="_blank" class="proj-link">Live</a>
+        </div>
+      </div>
+      <div class="project-name">Ski Instructor Website</div>
+      <div class="project-desc">Freelance project — responsive static site for a ski instructor built with React.</div>
+      <div class="project-tags">
+        <span class="ptag">React</span><span class="ptag">Freelance</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🏙️</div>
+        <div class="project-links">
+          <a href="https://baires-tour-web.vercel.app/" target="_blank" class="proj-link">Live</a>
+        </div>
+      </div>
+      <div class="project-name">BairesTour Web</div>
+      <div class="project-desc">Interactive site that guides users through the essence of Buenos Aires with custom UI.</div>
+      <div class="project-tags">
+        <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🏨</div>
+        <div class="project-links">
+          <a href="https://github.com/Juanemiliani70/Hotel-Booking-System" target="_blank" class="proj-link">GitHub</a>
+        </div>
+      </div>
+      <div class="project-name">Hotel Booking System</div>
+      <div class="project-desc">Android app for hotel reservation management with room availability and booking flows.</div>
+      <div class="project-tags">
+        <span class="ptag">Java</span><span class="ptag">Android Studio</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Background</div>
+  <h2>Education</h2>
+  <p class="section-desc">Formal studies and certifications that shaped my skill set.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2024–now</div>
+      <div>
+        <div class="edu-title">Higher Technical Degree in Software Development</div>
+        <div class="edu-inst">Instituto Superior Santo Domingo · Córdoba, Argentina</div>
+      </div>
+      <span class="edu-badge badge-progress">In progress</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2025</div>
+      <div>
+        <div class="edu-title">Machine Learning Engineer Course</div>
+        <div class="edu-inst">Anyone AI · E-learning</div>
+      </div>
+      <span class="edu-badge badge-done">Completed</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div>
+        <div class="edu-title">Expert Course in Network Administration & Security</div>
+        <div class="edu-inst">Aprender21 · E-learning</div>
+      </div>
+      <span class="edu-badge badge-done">Completed</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2>Let's work together</h2>
+  <p class="section-desc">
+    Open to freelance projects, remote roles, and collaborations. Don't hesitate to reach out.
+  </p>
+
+  <div class="contact-grid">
+
+    <div class="contact-links">
+
+      <a href="mailto:juanmemiliani@gmail.com" class="contact-link">
+        <i class="fa-solid fa-envelope"></i>
+        juanmemiliani@gmail.com
+      </a>
+
+      <a href="https://wa.me/5491122727175" target="_blank" class="contact-link">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp · +54 11 2272-7175
+      </a>
+
+      <a href="https://www.linkedin.com/in/juanemiliani/" target="_blank" class="contact-link">
+        <i class="fa-brands fa-linkedin"></i>
+        LinkedIn
+      </a>
+
+      <a href="https://github.com/Juanemiliani70" target="_blank" class="contact-link">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+      </a>
+
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <a
+        href="CV-Juan Manuel Emiliani(EN).pdf"
+        target="_blank"
+        class="btn btn-primary"
+        style="font-size: 1rem; padding: 1rem 2rem;"
+      >
+        Download CV ↓
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CABCAST SECTION removed — now lives in cabcast.html -->
+
+<footer>
+  © 2025 Juan Manuel Emiliani · Built with passion from Argentina
+</footer>
+
+</body>
+</html>
